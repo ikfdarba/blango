@@ -1,0 +1,12 @@
+{% load blog_extras %}
+
+{% block content %}
+    <h4>Recent Posts</h4>
+    <ul>
+    {% for sim_post in post|get_similar_posts %}
+        <div class="col">
+            <li><a href="{% url 'blog-post-detail' sim_post.slug %}">{{sim_post.title}}</a></li>
+        </div>
+    {% endfor %}
+    </ul>
+{% endblock %}
